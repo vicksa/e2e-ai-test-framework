@@ -1,0 +1,5 @@
+Visit "/login"
+Fill in "Username" with "victoria"
+Fill in "Password" with "secret123"
+Click "Login"
+Expect to see "Welcome, victoria"

@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "e2e-ai-test-framework"
+version = "0.1.0"
+description = "E2E test framework (Playwright + Pytest) with test-scenario generation from plain-language descriptions, optionally assisted by an LLM."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Victoria Arine" }]
+
+dependencies = [
+    "playwright>=1.44",
+    "pytest-playwright>=0.5",
+    "flask>=3.0",
+]
+
+[project.optional-dependencies]
+llm = ["anthropic>=0.30"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0"]
+
+[project.scripts]
+e2e-ai = "e2e_ai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "generated_tests"]
